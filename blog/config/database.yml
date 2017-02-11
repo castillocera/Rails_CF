@@ -10,16 +10,24 @@ default: &default
   timeout: 5000
 
 development:
-  <<: *default
-  database: db/development.sqlite3
-
+  adapter: mysql2 #agregamos esa gema e instalamos con  bundle install
+  usarname: root
+  password: 1234
+  host: localhost
+  port: 3306
+  database: blog_facilito
+  pool: 5
+  timeout: 5000
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-test:
+
+test: #ENTORNO DE TEST, cuando se usa test automaticos
   <<: *default
   database: db/test.sqlite3
 
-production:
+production: #ENTORNO DE PRODUCCIÓN, para subri a produccion
   <<: *default
   database: db/production.sqlite3
+#NO ES BUENO PONER MISMO NOMBRE A TODA LA BASE DE DATOS POR QUE EL RAKE
+#BORRARA TODA LA INFORMACION CADA BASE DE DATO TIENE Q SER DIFERENTE
