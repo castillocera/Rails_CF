@@ -8,6 +8,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
+
      <header>
         <nav class="be-red white large-padding">
          <ul class="row center-xs around-xs">
@@ -29,7 +30,10 @@
          </ul>
         </nav>
      </header>
-
+     <!-- agregar la autentificacion-->
+     <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+   <!-- agregar la autentificacion, PARA LAS ALERTAS-->
     <%= yield %>
 
   </body>

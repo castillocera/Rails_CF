@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
 
- resources :articles
- root :to => 'welcome#index' #pagina PRINCIPAL, root :to => 'articles#new' PAGINA PRINCIPAL SERIA CREAR NUEVO ARTICULO
+   devise_for :users #agrega automaticamente la gema devise
+
+   resources :articles
+   root :to => 'welcome#index' #pagina PRINCIPAL, root :to => 'articles#new' PAGINA PRINCIPAL SERIA CREAR NUEVO ARTICULO
 
 #genera por defecto ponemos resources
  # GET    /articles          articles#index
