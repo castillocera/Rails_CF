@@ -1,0 +1,27 @@
+<!--Esta es una vista PARCIAL, para que no se repita el codigo-->
+      <!--VARIABLE LOCAL PARA LA VISTA PARCIAL-->
+      <%name ||= "Crear" %>  <!--Si la variable name no definimos en una vista por defecto agregara CREAR Y NO ARROJARA ERROR-->
+      <h1><%= name %> Artículo</h1>
+      
+<!--form repite -->
+<%= form_for(@articley) do |f| %>
+
+   <!-- para las VALIDACIONES, QUE ME MANDA DESDE CREATE,full_messages es para que diga que fallo las validaciones usa la varible  que manda el controlador sin que este en la base de datos-->
+   <% @articley.errors.full_messages.each do |message|%>
+      <div class="be-red white top-space">
+         * <%= message %>
+      </div>
+   <%end%>
+   <!--Validaciones-->
+
+      <div class="field">
+      <%=f.text_field :title, placeholder: "Título" , class:"form-control"%>
+      </div>
+      <div class="field">
+      <%=f.text_area :body, placeholder: "Escribe el cuerpo..", style:"height:250px", class:"form-control"%>
+      </div>
+      <div class="field">
+      <%= f.submit "Guardar" , class:"btn be-red white large-padding"%>
+      </div>
+<% end %>
+<!--form repite -->

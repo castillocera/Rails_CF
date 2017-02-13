@@ -2,9 +2,12 @@ html,body{
    font-family: 'Roboto', sans-serif;
    margin: 0px;
 }
+.red{
+color: red !important;
+}
 
 a,a:visited{
-   color: inherit !important;
+   color: inherit ;
    text-decoration: none;
 }
 
@@ -30,4 +33,29 @@ ul {
 
 .large-padding{
    padding: 10px 7px;
+}
+// DEL NEW - CREATE
+.field{
+   margin-top: 1em;
+}
+.form-control{
+   border: none;
+   border-bottom: 1px solid;
+   outline: none;
+   width: 100%;
+   display: block;
+   padding: 10px 0px;
+   font-size: 1.2em;
+}
+
+.btn{
+   border-color: inherit;
+   border: none;
+   outline: none;
+   text-transform: uppercase;
+   cursor: pointer;
+}
+
+.top-space{
+   margin-top: 1em;
 }

@@ -1,0 +1,10 @@
+<!--ACA ESTA LO QUE ENVIO ENCONTRANDO Y USANDO EL ID, MANDA ALGO EN ESPECIFICO-->
+<!--QUE MANDA EL ID PARA PODER MOSTRAR A CUAL SE REFIERE QUE MANDA DESDE SHOW EN EL CONTROLADOR-->
+<!--LA VARIABLE ARTICLE MANDA DESDE EL CONTROLADOR-->
+<h1><%=@article.title %></h1>
+<div >
+<%=@article.body %>
+</div>
+<div>
+<%= link_to "Editar", edit_article_path(@article)%> <!--BOTON QUE MANDARA A EDITAR-->
+</div>

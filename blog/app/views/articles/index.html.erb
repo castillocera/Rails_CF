@@ -1,0 +1,13 @@
+<h1>Articles#index</h1>
+<!--HACEMOS EL RECORRIDO PARA MOSTRAR LA LISTA QUE ENVIO-->
+<% @articles.each do |article|%>
+
+<h1><%= link_to article.title, article %></h1> <!--Agregamos link_to para que nos lleve al articulo creado por el metodo GET QUE ES DEL SHOW para que muestre solo era article.title encerrado en porcentaje y signo mayor y menor-->
+
+<div>                              <!--el boton eliminar manda con metodo DELETE y esto ira al controlador en Destroy -->
+   <%= article.body%> <br>
+    <%= link_to "Eliminar", article, class:"red" ,method: :delete , data: { confirm: '¿Estás seguro?'} %>
+
+</div>
+ <%= link_to "Editar", edit_article_path(article)%> <!--BOTON QUE MANDARA A EDITAR-->
+<%end%>
