@@ -1,4 +1,7 @@
-<h2>HOLA BRAYANMURPHY - construyendo el BLOG</h2>
+<!--Informacion del usuario logueado-->
+<%if user_signed_in?%>
+<h2>Bienvenido <%= current_user.email %> </h2>
+<%end%>
 <!-- <%[1,2,3,4].each do |number| %>
 <p>Número: <%= number * 3%></p>
 <%end%>

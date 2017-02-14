@@ -1,40 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Blog</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-  <body>
+     <head>
+       <title>Blog</title>
+       <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+       <%= csrf_meta_tags %>
+       <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+       <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+     </head>
+     <body>
 
-     <header>
-        <nav class="be-red white large-padding">
-         <ul class="row center-xs around-xs">
-            <li class="col-md">
-               <h1 class="no-margin" id="logo">BrayanM BLOG</h1>
-            </li>
-            <li class="col-md">
-               Inicio
-            </li>
-            <li class="col-md">
-               Diseño
-            </li>
-            <li class="col-md">
-               Programación
-            </li>
-            <li class="col-md">
-               Tecnología
-            </li>
-         </ul>
-        </nav>
-     </header>
-     <!-- agregar la autentificacion-->
-     <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-   <!-- agregar la autentificacion, PARA LAS ALERTAS-->
-    <%= yield %>
+         <!--NAVEEGACION vista parcial MANDAMOS A CARPETA PARTIALS comienza con guion bajo las vistas parciales-->
+         <%= render "partials/navigation"%>
 
-  </body>
+
+        <!-- agregar la autentificacion DEVISE-->
+        <p class="notice"><%= notice %></p>
+         <p class="alert"><%= alert %></p>
+      <!-- agregar la autentificacion, PARA LAS ALERTAS-->
+
+
+       <%= yield %> <!--aca entrar el codigo que no se repite-->
+
+
+     </body>
 </html>

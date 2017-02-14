@@ -35,7 +35,7 @@ ul {
    padding: 10px 7px;
 }
 // DEL NEW - CREATE
-.field{
+.field, .actions{
    margin-top: 1em;
 }
 .form-control{
@@ -58,4 +58,9 @@ ul {
 
 .top-space{
    margin-top: 1em;
+}
+
+// VISTA DE CREAR USUARIO DEVISE
+ .text-left{
+    text-align: left;
 }
