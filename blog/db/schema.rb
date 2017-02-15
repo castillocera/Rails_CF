@@ -9,8 +9,8 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
-
-ActiveRecord::Schema.define(version: 20170213042430) do
+# ACA SE PUEDE VER TODA LAS TABLAS
+ActiveRecord::Schema.define(version: 20170214235523) do
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 20170213042430) do
     t.integer  "visits_count"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.integer  "user_id"                        #genero hacer la relacion de uno a muchos de usuario a articulos
+    t.index ["user_id"], name: "index_articles_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -39,4 +41,5 @@ ActiveRecord::Schema.define(version: 20170213042430) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "articles", "users"
 end

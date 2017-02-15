@@ -3,26 +3,40 @@ class ArticlesController < ApplicationController
 # get 'articles/index'
 #ACCION QUE TRAE LA LISTA DE LOS ARTICULOS
   def index
-
-        @articles = Article.all
+     #SELECT ALL
+     #Mandar datos del controlador a la vista
+     #creamos la variable de clase articules que es igual
+     @articles = Article.all #traera el all todo los registros del modelo Article que llama de la tabla de la BD
   end
 
 #Sirve para crear Articulos NUEVOS, manda a CREATE y tambm a EDIT para editar
  # GET  /articles/new articles#new
   def new
-     @articley = Article.new
+     @articley = Article.new #new crea nuevo articulo
+                           #esta variable se manda a la vista NEW donde lo usaran para mandar los parametros a create, porque recien crearan y no se encuentra en la BD
   end
 
  # POST /articles   articles#create #aca se acceedde con POST que envia la vista new con el metodo post para create
-def create
-    #   arrobaarticley = Article.new(article_params) #funciona sin relaciones de uno a muchos
-      @articley = current_user.articles.new(article_params) #articles ES UN METODO QUE TIENE current_user.articles por que tiene has_many :articles en el modelo USER
-                                                            #current_user TIENE LOS VALORES DEL USUARIO LOGUEADO
-      if @articley.save
-         redirect_to @articley #si guardo que se redirecciona al articulo creado
-      else
-         render :new #renderice la vista new que use la vista de NEW significa
-      end
+ #del formulario si el elemento aun no esta en la DB lo manda a CREATE, porque cuando llega al save recien almacenara si no la info no esta persistente
+  def create                                       #aca el article viene como una parametro en el htm article[body] se debe hacer referencia a losmmbres de los campos article queda por ser nombre del modelo
+     #INSERT INTO, en ves de new puede ser create  que llamara a save
+     #arrobaarticley = Article.new(title: params[:article][:title],body: params[:article][:body]) #params es un HASH deberia llevar llave pero ruby es flexible
+     #articley.save #guada a la base de datos
+     #redirect_to articley #redirecciona al articulo creado
+
+     #Strong Parameters-funciona el de arriba agregar arroba
+     @articley = Article.new(article_params)
+
+     #trabajar con las mismas variables en NEW y CREATE, trabaje con diferentes funciona pero al validar saldra error
+     #ya que new manda la variable a la vista new, y para crear retorna a CREATE, si no no saldra el error se perdera la varible no validara
+
+     #VALIDACIONES - usar mismas variables en NEW y CREATE CUANDO TRABAJAN JUNTOS
+   #   article.invalid? #se puede usar apra verdadero o falso
+   if @articley.save
+      redirect_to @articley #si guardo que se redirecciona al articulo creado
+   else
+      render :new #renderice la vista new que use la vista de NEW significa
+   end
 
   end
 
@@ -33,8 +47,9 @@ def create
  # GET /articles/:id articles#show
  #SHOW muestra recursos en especificooo, EN ESTE CASO EL ARTICULO ESPECIFICOoo POR SU ID
   def show  #WHERE               #Find  busca registros por id
-      @article = Article.find(params[:id])
-
+      @article = Article.find(params[:id]) #params es un hash o diccionario que buscara el ID que le mande la URI
+   #   Article.where("body LIKE ?" , "%hola") #buscara a todos los que tengan hola en el body
+   #   Article.where.not("id = ?" , params[:id]) #especificamos que ID no queremos que aparesca
   end
 
   def edit

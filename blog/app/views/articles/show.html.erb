@@ -2,6 +2,15 @@
 <!--QUE MANDA EL ID PARA PODER MOSTRAR A CUAL SE REFIERE QUE MANDA DESDE SHOW EN EL CONTROLADOR-->
 <!--LA VARIABLE ARTICLE MANDA DESDE EL CONTROLADOR-->
 <h1><%=@article.title %></h1>
+
+<!--RELACIONES UNO A MUCHOS-->
+<% unless @article.user.nill?%><!--a MENOS QUE EL USUARIO SEA NULO HACER ESTO, HACEMOS CUANDO NOS ARROJA EL VALOR DE NILL O NULO-->
+<p>
+Escrito por:   <%= @article.user.email %>
+</p>
+<%end%>
+<!--RELACIONES UNO A MUCHOS-->
+
 <div >
 <%=@article.body %>
 </div>
