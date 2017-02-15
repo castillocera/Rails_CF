@@ -4,11 +4,14 @@
 <h1><%=@article.title %></h1>
 
 <!--RELACIONES UNO A MUCHOS-->
-<% unless @article.user.nill?%><!--a MENOS QUE EL USUARIO SEA NULO HACER ESTO, HACEMOS CUANDO NOS ARROJA EL VALOR DE NILL O NULO-->
+<% unless @article.user.nil? %><!--a MENOS QUE EL USUARIO SEA NULO HACER ESTO, HACEMOS CUANDO NOS ARROJA EL VALOR DE NILL O NULO-->
 <p>
 Escrito por:   <%= @article.user.email %>
 </p>
 <%end%>
+<p>
+Visitas: <%= @article.visits_count %> <!--manda show desde controlador que esta usando callback en el modelo article para que cada ves que actualice la pagina se sume uno en las visitas-->
+</p>
 <!--RELACIONES UNO A MUCHOS-->
 
 <div >
