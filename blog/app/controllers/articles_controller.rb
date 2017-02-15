@@ -46,8 +46,8 @@ def create
       @article.update_visits_count #llamamos del modelo que se hizo CALLBACK para que sume las visitas segun se actualice la pagina
   end
 
-  def edit
-      #@articley = Article.find(params[:id]) #antes de encontrar la vista, encontrara el articulo a editar por su ID #optimizamos con CALLBACK before_action
+  def edit                                  #NO optimizamos con CALLBACK before_action porque la variable es articley hicimos por probar si fuera article si se podria
+      @articley = Article.find(params[:id]) #antes de encontrar la vista, encontrara el articulo a editar por su ID
   end
 
 #Si el objeto esta en la BD lo manda a UPDATE, al actualizar O editar

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+   resources :comments #scaffold agrega
    devise_for :users #agrega automaticamente la gema devise
 
    resources :articles
